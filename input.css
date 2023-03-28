@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .container {
+        @apply max-w-[1200px]
+    }
+}
+
+
+header .menus {
+    position: fixed;
+    top: 0;
+    z-index: 52;
+    height: 100vh;
+    width: 100%;
+    max-width: 24rem;
+    gap: 2.25rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255/var(--tw-bg-opacity));
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transition-duration: .5s
+}
+
+header .menus {
+    bottom: -100%
+}
+
+
+.sticky-header {
+    --tw-bg-opacity: 1;
+    background-color: rgb(8 17 31/var(--tw-bg-opacity));
+    --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -4px rgba(0, 0, 0, .1);
+    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+}
+
+
+/* OPTION 1 */
+.image_wrapper {
+    position: relative;
+}
+
+.image_wrapper img {
+    object-fit: cover;
+    width: 100%;
+    height: 391px;
+}
+
+.overlay {
+    position: absolute;
+    background: rgba(57, 57, 57, 0.5);
+    border-radius: 16px;
+}
+
+.overlay_5 {
+    inset: 0;
+    transform: scale(0);
+    transition: all .3s ease-in-out;
+}
+
+.image_wrapper:hover .overlay_5 {
+    transform: scale(1);
+}
+
+
+
+
+/* preloader */
+#loaderContainer {
+    height: 100vh;
+    width: 100vw;
+    background: black;
+    position: absolute;
+    z-index: 100000;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+#loaderGif {
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    border-top: 5px dashed;
+    border-bottom: 0;
+    border-color: bisque;
+    animation: loaderOut 2s linear infinite;
+}
+
+@keyframes loaderOut {
+    0% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(-45deg);
+    }
+
+    50% {
+        transform: rotate(0);
+    }
+
+    75% {
+        transform: rotate(45deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
+
+
+
+/* Tab */
+.tab-button {
+    transition: 0.5s;
+}
+
+.tab-button.active {
+    color: #29474C !important;
+}
+
+.content {
+    display: inherit;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+    -webkit-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
+}
+
+.content.active {
+    height: auto;
+    opacity: 1;
+    overflow: visible;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+
+}
+
+
+.home-filter .filter.active button {
+    --tw-text-opacity: 1;
+    color: #29474C;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #33686E;
+    border-radius: 5px;
+}
+
+
+/* Search */
+.search {
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 2px 1px 51px -9px rgba(0, 0, 0, 0.45);
+    -webkit-box-shadow: 2px 1px 51px -9px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 2px 1px 51px -9px rgba(0, 0, 0, 0.45);
+    color: #fff;
+}
+
+.search :is(input, button) {
+    background: transparent;
+    color: inherit;
+    border: none;
+    color: black;
+    outline: none;
+}
+
+.search__input {
+    width: 0;
+    transition: width 0.5s;
+}
+
+.search__button {
+    display: grid;
+    place-items: center;
+    width: 25px;
+    cursor: pointer;
+    transition: color 0.25s;
+}
+
+.search__button:hover {
+    color: #e3e3e3;
+}
+
+.search:focus-within input {
+    width: 200px;
+}
+
+::placeholder {
+    font: inherit;
+    color: #e3e3e3;
+}
+
+/* Service-Slider-Dots */
+.slick-dots {
+    display: flex;
+    padding-left: 15px !important;
+    text-align: left !important;
+    list-style-type: none;
+}
+
+.slick-dots li button {
+    display: block;
+    width: 10px !important;
+    height: 10px !important;
+    padding: 0;
+    border: none;
+    border-radius: 100%;
+    background-color: #29474C !important;
+    text-indent: -9999px;
+}
+
+.slick-dots li.slick-active button {
+    background-color: #fff !important;
+}
